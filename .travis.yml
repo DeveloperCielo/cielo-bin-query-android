@@ -9,7 +9,7 @@ android:
     - android-29
 
 script:
-  - ./gradlew clean :cielobinquery:clean :cielobinquery:build :cielobinquery:assembleRelease
+  - ./gradlew :cielobinquery:clean :cielobinquery:assembleRelease
 
 # deploy section
 deploy:
