@@ -89,7 +89,6 @@ afterEvaluate {
         key = bintray_key
         publications = ['release']
         override = true
-        skipUploadIfExist = true
         pkg {
             repo = bintrayRepo
             name = bintrayName
