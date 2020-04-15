@@ -1,6 +1,4 @@
-# Cielo Bin Query 
-[![Build Status](https://travis-ci.com/DeveloperCielo/cielo-bin-query.svg?branch=master)](https://travis-ci.com/DeveloperCielo/cielo-bin-query)
-[![Download](https://api.bintray.com/packages/braspag/cielo-bin-query/cielo-bin-query/images/download.svg)](https://bintray.com/braspag/cielo-bin-query/cielo-bin-query/_latestVersion)
+# Cielo Bin Query [![Build Status](https://travis-ci.com/DeveloperCielo/cielo-bin-query.svg?branch=master)](https://travis-ci.com/DeveloperCielo/cielo-bin-query) [![Download](https://api.bintray.com/packages/braspag/cielo-bin-query/cielo-bin-query/images/download.svg)](https://bintray.com/braspag/cielo-bin-query/cielo-bin-query/_latestVersion)
 
 O “Consulta de Bins” é um serviço de pesquisa de dados do cartão, de crédito ou débito, que retorna ao lojista da API Cielo e-Commerce informações que permitem validar os dados preenchidos na tela do checkout. 
 
