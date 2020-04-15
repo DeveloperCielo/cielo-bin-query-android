@@ -28,7 +28,7 @@ dependencies {
 
 > Não esqueça de verificar se **jcenter()** está configurado como repositório.
 
-- Ou baixe *cielo-bin-query-release.aar* from [releases](https://github.com/DeveloperCielo/cielo-bin-query/releases), mova para a pasta libs do seu módulo e adicione esta dependência ao *build.gradle* do seu módulo dentro do nó dependencies
+- Ou baixe *cielo-bin-query-release.aar* de [releases](https://github.com/DeveloperCielo/cielo-bin-query/releases), mova para a pasta libs do seu módulo e adicione esta dependência ao *build.gradle* do seu módulo dentro do nó dependencies
 
 ```kotlin
 dependencies {
