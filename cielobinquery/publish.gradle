@@ -83,23 +83,25 @@ if (project.rootProject.file('local.properties').canRead()) {
     ext.bintray_key = System.getenv('BINTRAY_KEY')
 }
 
-bintray {
-    user = bintray_user
-    key = bintray_key
-    publications = ['release']
-    override = true
-    pkg {
-        repo = bintrayRepo
-        name = bintrayName
-        licenses = allLicenses
-        publish = true
-        vcsUrl = gitUrl
-        publicDownloadNumbers = true
-        version {
-            name = libraryVersion
-            desc = libraryDescription
-            released = new Date()
-            vcsTag = libraryVersion
+afterEvaluate {
+    bintray {
+        user = bintray_user
+        key = bintray_key
+        publications = ['release']
+        override = true
+        pkg {
+            repo = bintrayRepo
+            name = bintrayName
+            licenses = allLicenses
+            publish = true
+            vcsUrl = gitUrl
+            publicDownloadNumbers = true
+            version {
+                name = libraryVersion
+                desc = libraryDescription
+                released = new Date()
+                vcsTag = libraryVersion
+            }
         }
     }
 }
