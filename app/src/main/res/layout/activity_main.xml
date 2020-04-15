@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        android:layout_centerInParent="true"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/status_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/status_label"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/status_label"
+            android:text="@string/status_placeholder" />
+
+        <TextView
+            android:id="@+id/provider_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status_label"
+            android:text="@string/provider_label"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/provider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/status"
+            android:layout_toEndOf="@id/provider_label"
+            android:text="@string/provider_placeholder" />
+
+        <TextView
+            android:id="@+id/cardtype_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/provider_label"
+            android:text="@string/cardtype_label"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/cardtype"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/provider"
+            android:layout_toEndOf="@id/cardtype_label"
+            android:text="@string/cardtype_placeholder" />
+
+        <TextView
+            android:id="@+id/foreigncard_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardtype_label"
+            android:text="@string/foreigncard_label"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/foreigncard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/cardtype"
+            android:layout_toEndOf="@id/foreigncard_label"
+            android:text="@string/foreigncard_placeholder" />
+
+        <TextView
+            android:id="@+id/corporatecard_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/foreigncard_label"
+            android:text="@string/corporatecard_label"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/corporatecard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/foreigncard"
+            android:layout_toEndOf="@id/corporatecard_label"
+            android:text="@string/corporatecard_placeholder" />
+
+        <TextView
+            android:id="@+id/issuer_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/corporatecard_label"
+            android:text="@string/issuer_label"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/issuer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/corporatecard"
+            android:layout_toEndOf="@id/issuer_label"
+            android:text="@string/issuer_placeholder" />
+
+        <TextView
+            android:id="@+id/issuercode_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/issuer_label"
+            android:text="@string/issuercode_label"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/issuercode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/issuer"
+            android:layout_toEndOf="@id/issuercode_label"
+            android:text="@string/issuercode_placeholder" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/errorContent"
+        android:visibility="invisible"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:id="@+id/errorMessage"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

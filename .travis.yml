@@ -1,0 +1,19 @@
+language: android
+dist: trusty
+android:
+  components:
+    # The BuildTools version used by your project
+    - build-tools-29.0.2
+
+    # The SDK version used to compile your project
+    - android-29
+
+script:
+  - ./gradlew clean :cielobinquery:clean :cielobinquery:build :cielobinquery:assembleRelease
+
+# deploy section
+deploy:
+  provider: script
+  script: ./gradlew :cielobinquery:bintrayUpload
+  on:
+    branch: master
