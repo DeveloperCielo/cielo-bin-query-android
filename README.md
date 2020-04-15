@@ -1,7 +1,17 @@
 # Cielo Bin Query [![Status](https://travis-ci.com/DeveloperCielo/cielo-bin-query.svg?branch=master)](https://travis-ci.com/DeveloperCielo/cielo-bin-query) [![Download](https://api.bintray.com/packages/braspag/cielo-bin-query/cielo-bin-query/images/download.svg)](https://bintray.com/braspag/cielo-bin-query/cielo-bin-query/_latestVersion)
 
-**Cielo Bin Query auxilia ao realizar consultas de bins.**
+O “Consulta de Bins” é um serviço de pesquisa de dados do cartão, de crédito ou débito, que retorna ao lojista da API Cielo e-Commerce informações que permitem validar os dados preenchidos na tela do checkout. 
 
+O serviço retorna os seguintes dados sobre o cartão:
+  
+- Bandeira do cartão: Nome da Bandeira
+- Tipo de cartão: Crédito, Débito ou Múltiplo (Crédito e Débito)
+- Nacionalidade do cartão: Estrangeiro ou Nacional
+- Cartão Corporativo: Se o cartão é ou não é corporativo
+- Banco Emissor: Código e Nome
+- Essas informações permitem tomar ações no momento do checkout para melhorar a conversão da loja.
+
+> O Consulta Bin deve ser habilitado pelo Suporte Cielo. Entre em contato com a equipe de Suporte e solicite a habilitação para sua loja.
 
 ## Instalação
 
