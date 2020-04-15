@@ -52,5 +52,5 @@ dependencies {
     implementation 'br.com.braspag:cieloecommerceoauth:1.0.0'
 
     // Cielo Bin Query
-    implementation project(':cielobinquery')
+    implementation 'br.com.cielo:cielobinquery:1.0.0'
 }
