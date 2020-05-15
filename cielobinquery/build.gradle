@@ -14,10 +14,10 @@ ext {
 
     libraryDescription = 'Cielo Bin Query auxilia na consulta de bins.'
 
-    siteUrl = 'https://github.com/developercielo/cielo-bin-query'
-    gitUrl = 'https://github.com/developercielo/cielo-bin-query.git'
+    siteUrl = 'https://github.com/developercielo/cielo-bin-query-android'
+    gitUrl = 'https://github.com/developercielo/cielo-bin-query-android.git'
 
-    libraryVersion = '1.0.0'
+    libraryVersion = '1.1.0'
 
     developerId = 'mauricifj'
     developerName = 'Maurici Ferreira Junior'
@@ -80,6 +80,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.8.1'
     implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
     implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.6.0'
+
+    // OAuthCielo
+    implementation 'br.com.braspag:cieloecommerceoauth:1.0.0'
 }
 
 apply from: 'publish.gradle'
