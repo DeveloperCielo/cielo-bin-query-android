@@ -21,8 +21,5 @@
 #-renamesourcefileattribute SourceFile
 
 -verbose
--repackageclasses 'cielobinquery'
 
--keep public class br.com.cielo.cielobinquery.CieloBinQuery { public *; }
--keep public class br.com.cielo.cielobinquery.CieloBinQueryResponse { public *; }
--keep public enum br.com.cielo.cielobinquery.Environment { public *; }
+-keep public class br.com.cielo.cielobinquery.* { public protected *; }
