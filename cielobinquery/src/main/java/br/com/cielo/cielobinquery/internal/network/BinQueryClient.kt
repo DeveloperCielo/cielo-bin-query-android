@@ -1,10 +1,8 @@
 package br.com.cielo.cielobinquery.internal.network
 
-import br.com.cielo.cielobinquery.BuildConfig
-import br.com.cielo.cielobinquery.Environment
+import br.com.cielo.cielobinquery.*
 import br.com.cielo.cielobinquery.internal.extensions.beared
-import br.com.cielo.cielobinquery.internal.extensions.toStatusCode
-import br.com.cielo.cielobinquery.CieloBinQueryResponse
+import com.google.gson.Gson
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -12,32 +10,51 @@ import retrofit2.Response
 internal class BinQueryClient (private val environment: Environment, private val merchantId: String) {
 
     fun query(
-        bin: String, token: String,
-        onSuccessCallback: (model: CieloBinQueryResponse) -> Unit,
-        onError: (error: String) -> Unit) {
+        bin: String,
+        token: String,
+        callback: (model: ClientResult<BinQueryResponse>) -> Unit) {
 
         val webClient = WebClient(getEnvironmentUrl(environment))
 
         val call = webClient.createService(BinQueryApi::class.java).query(bin, token.beared(), merchantId)
 
-        call.enqueue(object : Callback<CieloBinQueryResponse> {
-            override fun onFailure(call: Call<CieloBinQueryResponse>, t: Throwable) {
-                t.localizedMessage?.let { onError.invoke(it) }
+        call.enqueue(object : Callback<BinQueryResponse> {
+            override fun onFailure(call: Call<BinQueryResponse>, t: Throwable) {
+                t.localizedMessage?.let {
+                    callback.invoke(
+                        ClientResult(
+                            result = null,
+                            statusCode = HttpStatusCode.Unknown,
+                            errors = listOf(
+                                ErrorResponse(
+                                    code = null,
+                                    message = it
+                                )
+                            )
+                        )
+                    )
+                }
             }
 
             override fun onResponse(
-                call: Call<CieloBinQueryResponse>,
-                responseCielo: Response<CieloBinQueryResponse>
+                call: Call<BinQueryResponse>,
+                responseCielo: Response<BinQueryResponse>
             ) {
-                if (responseCielo.isSuccessful) {
-                    responseCielo.body()?.apply {
-                        onSuccessCallback(responseCielo.body()!!)
+                when (responseCielo.isSuccessful) {
+                    true -> {
+                        callback.invoke(
+                            ClientResult(
+                                result = responseCielo.body(),
+                                statusCode = responseCielo.code().toStatusCode()
+                            )
+                        )
                     }
-                    if (responseCielo.body() == null)
-                        onError.invoke("The response object is null.")
-                }
-                else {
-                    onError.invoke("Error ${responseCielo.code()} - ${responseCielo.code().toStatusCode()}")
+
+                    false -> callback.invoke(ClientResult(
+                        result = null,
+                        statusCode = responseCielo.code().toStatusCode(),
+                        errors = Gson().fromJson(responseCielo.errorBody()?.string(), Array<ErrorResponse>::class.java).toList()
+                    ))
                 }
             }
         })
