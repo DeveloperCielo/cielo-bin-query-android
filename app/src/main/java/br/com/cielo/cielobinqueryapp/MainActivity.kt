@@ -2,11 +2,10 @@ package br.com.cielo.cielobinqueryapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import br.com.braspag.cieloecommerceoauth.network.Environment as OAuthEnvironment
-import br.com.braspag.cieloecommerceoauth.network.HttpCredentialsClient
-import br.com.cielo.cielobinquery.CieloBinQuery
-import br.com.cielo.cielobinquery.Environment as CieloBinQueryEnvironment
+import android.util.Log
+import android.widget.ArrayAdapter
+import br.com.cielo.cielobinquery.BinQuery
+import br.com.cielo.cielobinquery.Environment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -14,47 +13,44 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        getOAuthToken()
-    }
-
-    private fun getOAuthToken() {
-        val client = HttpCredentialsClient(
-            OAuthEnvironment.SANDBOX,
-            "<CLIENT-ID>",
-            "<CLIENT-SECRET>"
+        val binQuery = BinQuery(
+            merchantId = "MERCHANT-ID",
+            clientId = "CLIENT-ID",
+            clientSecret = "CLIENT-SECRET",
+            environment = Environment.SANDBOX
         )
 
-        client.getOAuthCredentials({
-            binQuery(it.token)
-        },{
-            content.visibility = View.INVISIBLE
-            progress_bar.visibility = View.INVISIBLE
-            errorContent.visibility = View.VISIBLE
-            errorMessage.text = it
-        })
-    }
+        binQuery.query("001040") {
+            Log.d("BIN_QUERY_TAG", it.toString())
 
-    private fun binQuery(token: String) {
-        CieloBinQuery("<MERCHANT-ID>", CieloBinQueryEnvironment.SANDBOX)
-            .query(
-                "001040",
-                token,
-                {
-                    status.text = it.status
-                    provider.text = it.provider
-                    cardtype.text = it.cardType
-                    foreigncard.text = it.foreignCard.toString()
-                    corporatecard.text = it.corporateCard.toString()
-                    issuer.text = it.issuer
-                    issuercode.text = it.issuerCode
-                    content.visibility = View.VISIBLE
-                    progress_bar.visibility = View.INVISIBLE
-                }, {
-                    content.visibility = View.INVISIBLE
-                    progress_bar.visibility = View.INVISIBLE
-                    errorContent.visibility = View.VISIBLE
-                    errorMessage.text = it
+            if (it.result != null) {
+                with(it.result!!) {
+                    tv_status.text = status
+                    tv_provider.text = provider
+                    cardtype.text = cardType
+                    foreigncard.text = foreignCard.toString()
+                    corporatecard.text = corporateCard.toString()
+                    tv_issuer.text = issuer
+                    issuercode.text = issuerCode
                 }
-            )
+            } else {
+                tv_status.text = null
+                tv_provider.text = null
+                cardtype.text = null
+                foreigncard.text = null
+                corporatecard.text = null
+                tv_issuer.text = null
+                issuercode.text = null
+            }
+
+            if (it.errors.isNotEmpty()) {
+                list_errors.adapter = ArrayAdapter(
+                    this,
+                    android.R.layout.simple_list_item_1,
+                    android.R.id.text1,
+                    it.errors
+                )
+            }
+        }
     }
 }
