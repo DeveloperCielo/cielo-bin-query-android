@@ -1,6 +1,6 @@
 package br.com.cielo.cielobinquery.internal.network
 
-import br.com.cielo.cielobinquery.CieloBinQueryResponse
+import br.com.cielo.cielobinquery.BinQueryResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -12,5 +12,5 @@ internal interface BinQueryApi {
         @Path("bin") bin: String,
         @Header("Authorization") authorization: String,
         @Header("MerchantId") merchantId: String
-    ) : Call<CieloBinQueryResponse>
+    ) : Call<BinQueryResponse>
 }
