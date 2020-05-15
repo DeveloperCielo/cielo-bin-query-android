@@ -1,6 +1,6 @@
-package br.com.cielo.cielobinquery.internal.extensions
+package br.com.cielo.cielobinquery
 
-internal enum class HttpStatusCode(val code: Int) {
+enum class HttpStatusCode(val code: Int) {
     Ok(200),
     Created(201),
     Accepted(202),
