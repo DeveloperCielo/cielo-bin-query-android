@@ -2,7 +2,7 @@ package br.com.cielo.cielobinquery
 
 import com.google.gson.annotations.SerializedName
 
-data class CieloBinQueryResponse (
+data class BinQueryResponse (
     @SerializedName("Status")
     val status: String,
 
