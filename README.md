@@ -19,7 +19,7 @@ O serviço retorna os seguintes dados sobre o cartão:
 
 Adicione esta dependência ao *build.gradle* do seu módulo dentro do nó dependencies 
 
-```kotlin
+```groovy
 dependencies {
     ...
     implementation 'br.com.cielo:cielo-bin-query:1.0.0'
@@ -30,7 +30,7 @@ dependencies {
 
 - Ou baixe *cielo-bin-query-release.aar* de [releases](https://github.com/DeveloperCielo/cielo-bin-query/releases), mova para a pasta libs do seu módulo e adicione esta dependência ao *build.gradle* do seu módulo dentro do nó dependencies
 
-```kotlin
+```groovy
 dependencies {
     ...
     implementation files('libs/cielo-bin-query-release.aar')
@@ -41,7 +41,7 @@ dependencies {
 
 É necessário ter adicionado ao **AndroidManifest.xml** do seu módulo a seguinte permissão:
 
-```kotlin
+```xml
     <uses-permission android:name="android.permission.INTERNET" />
 ```
 
@@ -49,10 +49,15 @@ dependencies {
 
 ### Inicialização
 
-É necessário ter uma instância de **CieloBinQuery**
+É necessário ter uma instância de **BinQuery**
 
 ```kotlin
-        val cieloBinQuery = CieloBinQuery("<MERCHANT-ID>", Environment.SANDBOX)
+val binQuery = BinQuery(
+    merchantId = "MERCHANT-ID",
+    clientId = "CLIENT-ID",
+    clientSecret = "CLIENT-SECRET",
+    environment = Environment.SANDBOX
+)
 ```
 
 ### Consulta
@@ -60,19 +65,7 @@ dependencies {
 A consulta ocorre através do método **query**, para isto, basta informar o bin do cartão, OAuth Token, um callback de sucesso e um callback de erro:
 
 ```kotlin
-        cieloBinQuery.query(
-                "000000",
-                "<OAUTH-TOKEN>",
-                {
-                    status.text = it.status
-                    provider.text = it.provider
-                    cardtype.text = it.cardType
-                    foreigncard.text = it.foreignCard.toString()
-                    corporatecard.text = it.corporateCard.toString()
-                    issuer.text = it.issuer
-                    issuercode.text = it.issuerCode
-                }, {
-                    errorMessage.text = it
-                }
-            )
+binQuery.query("001040") {
+  // Callback
+}
 ```
