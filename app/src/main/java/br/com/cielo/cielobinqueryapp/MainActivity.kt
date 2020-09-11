@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         )
 
         binQuery.query("001040") {
-            Log.d("BIN_QUERY_TAG", it.toString())
+            Log.d("CIELO_BIN_QUERY", it.toString())
 
             if (it.result != null) {
                 with(it.result!!) {
