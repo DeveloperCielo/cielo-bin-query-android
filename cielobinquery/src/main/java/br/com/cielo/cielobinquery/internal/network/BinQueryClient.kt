@@ -16,7 +16,8 @@ internal class BinQueryClient (private val environment: Environment, private val
 
         val webClient = WebClient(getEnvironmentUrl(environment))
 
-        val call = webClient.createService(BinQueryApi::class.java).query(bin, token.beared(), merchantId)
+        val xSdkVersion = BuildConfig.X_SDK_VERSION
+        val call = webClient.createService(BinQueryApi::class.java).query(bin, token.beared(), merchantId, xSdkVersion)
 
         call.enqueue(object : Callback<BinQueryResponse> {
             override fun onFailure(call: Call<BinQueryResponse>, t: Throwable) {

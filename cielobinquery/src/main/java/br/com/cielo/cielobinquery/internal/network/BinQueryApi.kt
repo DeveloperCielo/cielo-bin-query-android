@@ -11,6 +11,7 @@ internal interface BinQueryApi {
     fun query(
         @Path("bin") bin: String,
         @Header("Authorization") authorization: String,
-        @Header("MerchantId") merchantId: String
+        @Header("MerchantId") merchantId: String,
+        @Header("x-sdk-version") xSdkVersion: String
     ) : Call<BinQueryResponse>
 }
