@@ -43,5 +43,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     // Cielo Bin Query
-    implementation 'br.com.cielo:cielo-bin-query:1.1.1'
+    implementation 'br.com.cielo:cielo-bin-query:1.1.2'
 }
