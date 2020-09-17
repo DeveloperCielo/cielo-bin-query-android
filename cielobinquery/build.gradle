@@ -17,7 +17,7 @@ ext {
     siteUrl = 'https://github.com/developercielo/cielo-bin-query-android'
     gitUrl = 'https://github.com/developercielo/cielo-bin-query-android.git'
 
-    libraryVersion = '1.1.2'
+    libraryVersion = '1.1.3'
 
     developerId = 'mauricifj'
     developerName = 'Maurici Ferreira Junior'
@@ -51,7 +51,7 @@ android {
         buildTypes.each {
             it.buildConfigField('String', 'URL_QUERY_SANDBOX', "\"https://apiquerysandbox.cieloecommerce.cielo.com.br/\"")
             it.buildConfigField('String', 'URL_QUERY_PRODUCTION', "\"https://apiquery.cieloecommerce.cielo.com.br/\"")
-            it.buildConfigField('String', 'X_SDK_VERSION', "\"CieloBinQuery@$libraryVersion\"")
+            it.buildConfigField('String', 'X_SDK_VERSION', "\"CieloBinQuery-Android@$libraryVersion\"")
         }
     }
     compileOptions {
