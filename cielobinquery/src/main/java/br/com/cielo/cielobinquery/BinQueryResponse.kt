@@ -22,5 +22,8 @@ data class BinQueryResponse (
     val issuer: String,
 
     @SerializedName("IssuerCode")
-    val issuerCode: String
+    val issuerCode: String,
+
+    @SerializedName("PrePaid")
+    val prePaid: Boolean
 )

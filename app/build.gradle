@@ -42,6 +42,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    // Cielo Bin Query
-    implementation 'br.com.cielo:cielo-bin-query:1.1.2'
+    // Cielo Bin Query (Local)
+    implementation project(path: ':cielobinquery')
+    // Cielo Bin Query (Bintray)
+//    implementation 'br.com.cielo:cielo-bin-query:1.1.2'
 }

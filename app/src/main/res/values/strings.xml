@@ -9,6 +9,7 @@
     <string name="corporatecard_label">CorporateCard:</string>
     <string name="issuer_label">Issuer:</string>
     <string name="issuercode_label">IssuerCode:</string>
+    <string name="prepaid_label">PrePaid:</string>
 
     <!-- Placeholders -->
     <string name="loading">Loading…</string>
