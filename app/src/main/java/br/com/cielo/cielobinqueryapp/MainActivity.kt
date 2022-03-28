@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
                     corporatecard.text = corporateCard.toString()
                     tv_issuer.text = issuer
                     issuercode.text = issuerCode
+                    tv_prepaid.text = prePaid.toString()
                 }
             } else {
                 tv_status.text = null
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
                 corporatecard.text = null
                 tv_issuer.text = null
                 issuercode.text = null
+                tv_prepaid.text = null
             }
 
             if (it.errors.isNotEmpty()) {

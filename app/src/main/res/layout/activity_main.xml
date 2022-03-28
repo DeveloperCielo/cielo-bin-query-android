@@ -116,11 +116,27 @@
         android:layout_toEndOf="@id/issuercode_label"
         android:text="@string/loading" />
 
+    <TextView
+        android:id="@+id/prepaid_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/issuercode_label"
+        android:text="@string/prepaid_label"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_prepaid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/issuercode"
+        android:layout_toEndOf="@id/prepaid_label"
+        android:text="@string/loading" />
+
     <!-- Error Messages -->
     <ListView
         android:id="@+id/list_errors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/issuercode_label" />
+        android:layout_below="@+id/prepaid_label" />
 
 </RelativeLayout>
